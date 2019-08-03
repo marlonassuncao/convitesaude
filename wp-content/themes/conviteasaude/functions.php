@@ -228,3 +228,46 @@ function especialidades()
     register_post_type('especialidades', $args);
 }
 add_action('init', 'especialidades', 0);
+
+// Receitas
+function receitas()
+{
+    $labels = array(
+        'name' => _x('Receitas', 'Post Type General Name', 'text_domain'),
+        'singular_name' => _x('Receita', 'Post Type Singular Name', 'text_domain'),
+        'menu_name' => __('Receitas', 'text_domain'),
+        'name_admin_bar' => __('Receitas', 'text_domain'),
+        'archives' => __('Receitas', 'text_domain'),
+        'all_items' => __('Cadastros', 'text_domain'),
+        'add_new_item' => __('Add novo', 'text_domain'),
+        'add_new' => __('Novo', 'text_domain'),
+        'new_item' => __('Novo', 'text_domain'),
+        'edit_item' => __('Editar', 'text_domain'),
+        'update_item' => __('Atualizar', 'text_domain'),
+        'view_item' => __('Visualizar', 'text_domain'),
+        'search_items' => __('Pesquisar', 'text_domain'),
+        'not_found' => __('Sem registros!', 'text_domain'),
+        'not_found_in_trash' => __('Sem registro na lixeira', 'text_domain'),
+    );
+    $args = array(
+        'label' => __('Receitas', 'text_domain'),
+        'description' => __('Receitas', 'text_domain'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'revisions'),
+        'taxonomies' => array(),
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => true,
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+    register_post_type('receitas', $args);
+}
+add_action('init', 'receitas', 0);

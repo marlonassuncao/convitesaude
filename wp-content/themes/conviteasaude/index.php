@@ -216,7 +216,7 @@
                     <ul>
                         <?php
                             $categories=get_categories(
-                                array( 'parent' => 2 )
+                                array( 'parent' => 3 )
                             );
                             foreach ($categories as $c) :
                         ?>
@@ -360,7 +360,7 @@
                         </figure>
                         <div class="txt">
                             <h1><?php the_title(); ?></h1>
-                            <strong><?php echo $especialidade; ?></strong>
+                            <strong><?php print_r($especialidade->post_title); ?></strong>
                             <small><span>CRM</span><?php echo $crm; ?></small>
                         </div>
                     </div>

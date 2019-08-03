@@ -58,7 +58,7 @@
                         </figure>
                         <div class="txt">
                             <h1><?php the_title(); ?></h1>
-                            <strong><?php echo $especialidade; ?></strong>
+                            <strong><?php print_r($especialidade->post_title); ?></strong>
                             <small><span>CRM</span><?php echo $crm; ?></small>
                         </div>
                     </div>
