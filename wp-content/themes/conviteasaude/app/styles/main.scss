@@ -294,24 +294,148 @@ body {
 #slider {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   .slide {
     width: 100%;
     margin-top: 80px;
     position: relative;
     overflow: hidden;
     height: 450px;
-    h2 {
-      font-size: 0.9em;
-      letter-spacing: 5pt;
-      word-spacing: 5pt;
-      line-height: 4em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 55px;
+    .loading {
+      border: 0;
+      background: 0;
+      img {
+        width: 120px;
+      }
     }
     h1 {
-      font-size: 3.5em;
+      font-size: 4em;
       letter-spacing: 5pt;
       word-spacing: 5pt;
       line-height: 0.4em;
       word-wrap: break-word;
+      color: $branco;
+      margin-bottom: 35px;
+    }
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      .ml-form-horizontalRow {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .ml-form-successContent {
+        color: $branco;
+        padding: 10px;
+        width: 320px;
+        max-width: 100%;
+      }
+      .ml-field-group {
+        margin-right: 10px;
+      }
+      input {
+        min-width: 200px;
+      }
+      .btn {
+        background: $preto;
+        color: $branco;
+        padding: 10px;
+        transform: none;
+        min-width: auto;
+        margin: 0;
+        border-color: $preto;
+        font-size: 12pt;
+        line-height: 12pt;
+        margin-right: 20px;
+        &:hover {
+          background: $verde;
+          border-color: $verde;
+        }
+      }
+    }
+  }
+  .perfil {
+    background: #ededed;
+    width: 100%;
+    min-height: 50pt;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    color: $branco;
+    position: relative;
+    height: 100pt;
+    figure {
+      top: -6rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 100%;
+      width: 200px;
+      height: 200px;
+      margin: 0;
+      margin-right: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $branco;
+      border: 1pt solid #ddd;
+      img {
+        transform: scale(1.2);
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .top {
+      width: 100%;
+      background: #696969;
+      height: 30pt;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding-top: 5px;
+      .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        .socials {
+          margin-right: 30px;
+          a {
+            color: $branco;
+            margin: 5px;
+            font-size: 18pt;
+            &:hover {
+              color: $preto;
+            }
+          }
+        }
+      }
+    }
+    .bottom {
+      padding: 10px 0;
+      color: $cinzamedio;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      .title {
+        padding-top: 10px;
+        h1 {
+          margin-bottom: 0;
+          line-height: 18pt;
+        }
+        .subTitle {
+          font-size: 14pt;
+        }
+      }
+      .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
   }
 }
@@ -626,6 +750,155 @@ body {
   h2 {
     font-family: "Bold";
   }
+  .perfil {
+    .box {
+      margin: 15px 0;
+      padding: 5px 30px;
+      h3 {
+        font-size: 22pt;
+        border-bottom: 1pt solid $cinzamedio;
+      }
+      ul {
+        padding: 0;
+      }
+    }
+  }
+}
+#dicas {
+  background: #ededed;
+  min-height: auto;
+  .box {
+    background: #d8d8d8;
+    border: 1pt solid #979797;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    h3 {
+      font-size: 2em;
+      line-height: 1.2em;
+      margin: 0;
+      margin-top: 10px;
+      color: $rosa;
+      strong {
+        font-size: 2.5em;
+      }
+    }
+  }
+  .txt {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    p {
+      margin: 10px 0;
+    }
+  }
+}
+#galeria {
+  h3 {
+    font-size: 22pt;
+  }
+  .galeria {
+    margin-top: 35px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        figure {
+          background: $verde;
+          overflow: hidden;
+          img {
+            transition: all 0.2s ease-in-out;
+            min-width: 100%;
+            max-width: 100%;
+            height: auto;
+            transform: none;
+            opacity: 1;
+          }
+        }
+        &:hover {
+          figure {
+            img {
+              transform: scale(1.1);
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+#pets {
+  h3 {
+    font-size: 22pt;
+  }
+  .galeria {
+    margin-top: 35px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 220px;
+        padding: 20px;
+        figure {
+          z-index: 999;
+          position: absolute;
+          width: 150px;
+          height: 150px;
+          bottom: -10px;
+          left: 0;
+          overflow: hidden;
+          border-radius: 100%;
+          img {
+            min-width: 100%;
+            max-width: 100%;
+            height: auto;
+          }
+        }
+        .txt {
+          border: 1.5pt solid $cinzaclaro;
+          border-radius: 4px;
+          position: relative;
+          padding: 20px;
+          width: 90%;
+          margin-left: auto;
+          padding-left: 6rem;
+          display: flex;
+          align-items: center;
+          p {
+            font-size: 14pt;
+          }
+        }
+      }
+    }
+  }
+}
+.single-especialistas {
+  #archive {
+    padding-top: 55px;
+    background: $cinzaclaro;
+  }
+}
+#ad {
+  padding: 35px 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 #ebooks {
   .box {
@@ -697,6 +970,21 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  .loading {
+    border: 0;
+    background: 0;
+    img {
+      width: 120px;
+    }
+  }
+  .horozintalForm {
+    width: 320px;
+    max-width: 100%;
+    button {
+      margin: 25px auto;
+      display: block;
+    }
+  }
   h1 {
     font-family: "Bold";
     color: $branco;
@@ -712,6 +1000,7 @@ body {
     align-items: center;
     align-self: center;
     flex-direction: column;
+    width: 100%;
     input {
       width: 320px;
       max-width: 100%;

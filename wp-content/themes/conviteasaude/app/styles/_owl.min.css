@@ -248,14 +248,14 @@
 }
 
 .owl-theme .owl-dots .owl-dot:hover, .owl-theme .owl-dots .owl-dot.active {
-  border-color: #7fc241;
+  border-color: #009f7b;
 }
 
 .owl-theme .owl-dots .owl-dot span {
   width: 6px;
   height: 6px;
   margin: 5px 10px;
-  background: #a78b6b;
+  background: #009f7b;
   display: block;
   -webkit-backface-visibility: visible;
   transition: opacity 0.2s ease;
@@ -265,5 +265,5 @@
 }
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: #7fc241;
+  background: #009f7b;
 }

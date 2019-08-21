@@ -3,7 +3,43 @@
 
 <div id="slider">
     <div class="container-fluid" data-aos="zoom-in-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
-        <div class="slide"></div>
+        <div class="slide">
+            <h1><?php the_title(); ?></h1>
+            <div id="mlb2-1436384" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1436384 form">
+                <form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/a0f5v4"
+                    data-code="a0f5v4" method="post" target="_blank">
+                    <div class="ml-form-formContent horozintalForm">
+                        <div class="ml-form-horizontalRow">
+                            <div class="ml-input-horizontal">
+                                <div style="width: 100%;" class="horizontal-fields">
+                                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                        <input style="width: 100%;" type="email" class="form-control" data-inputmask=""
+                                            name="fields[email]" value="" placeholder="Digite seu melhor e-mail"
+                                            required="required">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-button-horizontal">
+                                <button type="submit" class="primary btn">Inscrevar</button>
+                                <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                    <div class="ml-form-embedSubmitLoad">
+                                        <img src="<?php bloginfo('template_directory'); ?>/app/images/preloader.svg"
+                                            alt="">
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                </form>
+                <div class="ml-form-successBody row-success" style="display: none">
+                    <div class="ml-form-successContent">
+                        <h4>Obrigado!</h4>
+                        <p>Tudo pronto, basta confirmar seu e-mail e você receberá nossa novidades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="parallax" data-parallax-image="<?php bloginfo('template_directory'); ?>/app/images/slider.jpg"></div>
 </div>
@@ -45,14 +81,12 @@
                         <div class="destaque">
 
                             <?php
-                            // The Query
                             $args = array(
                                 'cat'       => 2, 
                                 'showposts' => 3
                             );
                             $the_query = new WP_Query( $args );
 
-                            // The Loop
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) :
                                     $the_query->the_post();
@@ -112,18 +146,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Últimos Posts</h1>
+                    <h1>Minhas Publicações</h1>
                 </div>
 
                 <?php
-                            // The Query
                 $args = array(
                     'cat'       => 2, 
                     'showposts' => 8
                 );
                 $the_query = new WP_Query( $args );
-
-                // The Loop
                 if ( $the_query->have_posts() ) :
                     while ( $the_query->have_posts() ) :
                         $the_query->the_post();
@@ -169,14 +200,11 @@
             </div>
 
             <?php
-            // The Query
             $args = array(
                 'cat'       => 3, 
                 'showposts' => 4
             );
             $the_query = new WP_Query( $args );
-
-            // The Loop
             if ( $the_query->have_posts() ) :
                 while ( $the_query->have_posts() ) :
                     $the_query->the_post();
@@ -201,56 +229,8 @@
         </div>
     </div>
 </section>
-<section class="section" id="listEspecialistas">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title">
-                    <h1><span>Nossos Especialistas</span>
-                        <div class="ft"></div>
-                    </h1>
-                </div>
-            </div>
 
-            <?php
-            // The Query
-            $args = array(
-                'post_type' => 'especialistas', 
-                'showposts' => 4
-            );
-            $the_query = new WP_Query( $args );
-
-            // The Loop
-            if ( $the_query->have_posts() ) :
-                while ( $the_query->have_posts() ) :
-                    $the_query->the_post();
-                    $crm = get_field('crm'); 
-                    $especialidade = get_field('especialidade'); 
-            ?>
-
-            <div class="col-md-3">
-                <a href="#">
-                    <div class="box" data-aos="zoom-in" data-aos-delay="300">
-                        <figure>
-                            <?php the_post_thumbnail('thumbPrincipalSmall'); ?>
-                        </figure>
-                        <div class="txt">
-                            <h1><?php the_title(); ?></h1>
-                            <strong><?php print_r($especialidade->post_title); ?></strong>
-                            <small><span>CRM</span><?php echo $crm; ?></small>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <?php
-                endwhile;
-            endif;
-            wp_reset_postdata();
-            ?>
-
-        </div>
-    </div>
-</section>
-
-<?php get_footer(); ?>
+<?php 
+    include'loop-especialistas.php';
+    get_footer(); 
+?>

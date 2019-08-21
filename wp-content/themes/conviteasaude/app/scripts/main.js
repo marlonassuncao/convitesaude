@@ -1,6 +1,49 @@
 jQuery(function () {
 
   // owl
+  jQuery(".owlGaleria").owlCarousel({
+    loop: true,
+    margin: 15,
+    nav: false,
+    autoHeight: true,
+    animateOut: "fadeOut",
+    animateIn: "fadeIn",
+    responsive: {
+      0: {
+        items: 1,
+        dots: false
+      },
+      600: {
+        items: 2,
+        dots: false
+      },
+      1000: {
+        items: 4
+      }
+    }
+  });
+  jQuery(".owlPets").owlCarousel({
+    loop: true,
+    margin: 30,
+    nav: false,
+    autoHeight: true,
+    animateOut: "fadeOut",
+    animateIn: "fadeIn",
+    responsive: {
+      0: {
+        items: 1,
+        dots: false
+      },
+      600: {
+        items: 1,
+        dots: false
+      },
+      1000: {
+        items: 2
+      }
+    }
+  });
+
   jQuery(".owlDpos").owlCarousel({
     loop: true,
     margin: 10,
@@ -22,6 +65,7 @@ jQuery(function () {
       }
     }
   });
+
 
   // tabs
   jQuery('ul.tabs li').click(function () {

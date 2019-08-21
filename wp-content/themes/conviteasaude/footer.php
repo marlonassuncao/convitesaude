@@ -1,10 +1,42 @@
 <section class="section" id="newsletter">
     <h1>Assine nosso conteúdo <br> e mantenha-se informado</h1>
-    <form action="#">
+    <!-- <form action="#">
         <input type="email" name="email" class="form-control" placeholder="Digite seu melhor e-mail"
             required="required">
         <button class="btn">Cadastrar</button>
-    </form>
+    </form> -->
+    <div id="mlb2-1436384" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1436384">
+        <form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/a0f5v4" data-code="a0f5v4"
+            method="post" target="_blank">
+            <div class="ml-form-formContent horozintalForm">
+                <div class="ml-form-horizontalRow">
+                    <div class="ml-input-horizontal">
+                        <div style="width: 100%;" class="horizontal-fields">
+                            <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                <input style="width: 100%;" type="email" class="form-control" data-inputmask=""
+                                    name="fields[email]" value="" placeholder="Digite seu melhor e-mail" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ml-button-horizontal">
+                        <button type="submit" class="primary btn">Inscrevar</button>
+                        <button disabled="disabled" style="display: none;" type="button" class="loading">
+                            <div class="ml-form-embedSubmitLoad">
+                                <img src="<?php bloginfo('template_directory'); ?>/app/images/preloader.svg" alt="">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="ml-submit" value="1">
+        </form>
+        <div class="ml-form-successBody row-success" style="display: none">
+            <div class="ml-form-successContent">
+                <h4>Obrigado!</h4>
+                <p>Tudo pronto, basta confirmar seu e-mail e você receberá nossa novidades.</p>
+            </div>
+        </div>
+    </div>
     <div class="parallax" data-parallax-image="<?php bloginfo('template_directory'); ?>/app/images/bg01.jpg"></div>
 </section>
 <footer class="section" id="footer">
@@ -113,6 +145,18 @@
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/owl.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/parallax.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/main.min.js"></script>
+
+<script>
+function ml_webform_success_1436384() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-1436384 .row-success').show();
+    $('.ml-subscribe-form-1436384 .row-form').hide();
+}
+</script>
+<img src="https://track.mailerlite.com/webforms/o/1436384/a0f5v4?vd890ed88b3a28c805acc70e1a88fa27c" width="1" height="1"
+    style="max-width: 1px; max-height: 1px; visibility: hidden; padding: 0; margin: 0; display: block;" border="0">
+<script src="https://static.mailerlite.com/js/w/webforms.min.js?vd890ed88b3a28c805acc70e1a88fa27c"
+    type="text/javascript"></script>
 
 </body>
 
