@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Duplicate Post - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-07-10 14:30:23+0000\n"
+"PO-Revision-Date: 2019-08-14 02:02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,9 +11,17 @@ msgstr ""
 "Language: pt_BR\n"
 "Project-Id-Version: Plugins - Duplicate Post - Stable (latest release)\n"
 
+#: duplicate-post-options.php:367
+msgid "now works on Edit screen too - check this option to use with Gutenberg enabled"
+msgstr "Agora também funciona na tela de edição - conferir esta opção para usar com o Gutenberg ativado."
+
 #: duplicate-post-admin.php:194
 msgid "What's new in Duplicate Post version %s:"
 msgstr "O que há de novo no Duplicate Post versão %s:"
+
+#: duplicate-post-admin.php:195
+msgid "Fixes for some bugs and incompatibilities with CF7, WPML, and custom post types with custom capabilities."
+msgstr "Correções para alguns erros e incompatibilidades com CF7, WPML e tipos de post personalizados com recursos personalizados."
 
 #: duplicate-post-admin.php:281
 msgid "Current user is not allowed to copy posts."

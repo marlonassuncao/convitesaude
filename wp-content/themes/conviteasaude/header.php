@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title><?php wp_title(); ?></title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#009F7B">
     <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/app/images/favicon.png?v=2"
@@ -41,8 +40,8 @@
                     <li><a href="<?php bloginfo('url'); ?>/?page_id=3">Política do Site</a></li>
                     <li><a href="<?php bloginfo('url'); ?>/?page_id=13391">Contato</a></li>
                 </ul>
-                <form action="#">
-                    <input type="search" class="form-control" placeholder="Digite sua busca">
+                <form action="<?php bloginfo('url'); ?>" method="get" accept-charset="utf-8" id="searchform" role="search">
+                    <input type="search" class="form-control" placeholder="Digite sua busca" name="s" id="s" value="<?php the_search_query(); ?>">
                     <button><i class="ion-ios-search-strong"></i></button>
                 </form>
             </nav>

@@ -73,7 +73,7 @@
             <div class="col-md-12">
                 <div class="minha-saude" data-aos="fade-in">
                     <div class="title">
-                        <h1><span>Minha Saúde</span>
+                        <h1><span>Destaques</span>
                             <div class="ft"></div>
                         </h1>
                     </div>
@@ -82,7 +82,7 @@
 
                             <?php
                             $args = array(
-                                'cat'       => 2, 
+                                'cat'       => 1, 
                                 'showposts' => 3
                             );
                             $the_query = new WP_Query( $args );
@@ -109,27 +109,40 @@
                                 </figure>
                             </div>
 
-                            <?php
-                                endwhile;
-                            endif;
-                            wp_reset_postdata();
+                            <?php endwhile;  else : ?>    
+
+                                <h3>Sem registros encontrados!</h3>
+
+                            <?php 
+                                endif;
+                                wp_reset_postdata();
                             ?>
 
                         </div>
                     </div>
                     <div class="listcat">
-                        <h3>Escolha o conteúdo por editoria</h3>
+                        <div class="title">
+                            <h1><span>Escolha o conteúdo <br>  por editoria</span>
+                                <div class="ft"></div>
+                            </h1>
+                        </div>
                         <ul>
                             <?php
                                 $categories=get_categories(
-                                    array( 'parent' => 2 )
+                                    array( 'parent' => 1, 'hide_empty' => false )
                                 );
                                 foreach ($categories as $c) :
+                                    $icone = get_field('icone', 'category_'.$c->term_id);
                             ?>
                             <li>
                                 <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
-                                    <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
+                                    <?php if(!$icone) : ?>
+                                        <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
+                                                alt=""></figure>
+                                    <?php else : ?>
+                                        <figure><img src="<?php echo $icone; ?>"
                                             alt=""></figure>
+                                    <?php endif; ?>
                                     <?php echo $c->cat_name; ?>
                                 </a>
                             </li>
@@ -145,19 +158,22 @@
     <div class="posts">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
-                    <h1>Minhas Publicações</h1>
+                <div class="title">
+                    <h1><span>Últimos Posts</span>
+                        <div class="ft"></div>
+                    </h1>
                 </div>
 
                 <?php
                 $args = array(
-                    'cat'       => 2, 
-                    'showposts' => 8
+                    'cat' => 1, 
+                    'posts_per_page' => 8,
+                    'paged' => $paged
                 );
-                $the_query = new WP_Query( $args );
-                if ( $the_query->have_posts() ) :
-                    while ( $the_query->have_posts() ) :
-                        $the_query->the_post();
+                $posts = new WP_Query( $args );
+                if ( $posts->have_posts() ) :
+                    while ( $posts->have_posts() ) :
+                        $posts->the_post();
                 ?>
 
                 <div class="col-md-3">
@@ -180,57 +196,17 @@
                 </div>
                 <?php endwhile; else : ?>
                 <div class="col-md-12 wow fadeIn" data-wow-delay="0.5s">
-                    <h3 class="noR">Sem posts registrados!</h1>
+                    <h3>Sem posts registrados!</h1>
                 </div>
-                <?php endif; wp_reset_query();?>
+                <?php endif; wp_pagenavi( array( 'query' => $posts ) ); wp_reset_query(); ?>
 
             </div>
-        </div>
-    </div>
-</section>
-<section class="section" id="ebooks">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title">
-                    <h1><span>E-books</span>
-                        <div class="ft"></div>
-                    </h1>
-                </div>
-            </div>
-
-            <?php
-            $args = array(
-                'cat'       => 3, 
-                'showposts' => 4
-            );
-            $the_query = new WP_Query( $args );
-            if ( $the_query->have_posts() ) :
-                while ( $the_query->have_posts() ) :
-                    $the_query->the_post();
-                    $thumbEbooks = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbEbooks' );
-            ?>
-
-            <div class="col-md-3">
-                <a href="#">
-                    <div class="box">
-                        <h1><?php the_title(); ?></h1>
-                        <figure style="background-image: url('<?php echo $thumbEbooks[0]; ?>')"></figure>
-                    </div>
-                </a>
-            </div>
-
-            <?php
-                endwhile;
-            endif;
-            wp_reset_postdata();
-            ?>
-
         </div>
     </div>
 </section>
 
 <?php 
+    include'loop-ebooks.php';
     include'loop-especialistas.php';
     get_footer(); 
 ?>

@@ -13,7 +13,8 @@
             // The Query
             $args = array(
                 'post_type' => 'especialistas', 
-                'showposts' => 4
+                'showposts' => 4,
+                'orderby' => 'rand',
             );
             $the_query = new WP_Query( $args );
 
@@ -36,16 +37,21 @@
                         <div class="txt">
                             <h1><?php the_title(); ?></h1>
                             <strong><?php print_r($especialidade->post_title); ?></strong>
-                            <small><span>CRM</span><?php echo $crm; ?></small>
+                            <?php if($crm) : ?>
+                                <small><span>Registro Profissional</span> <?php echo $crm; ?></small>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <?php
-                endwhile;
-            endif;
-            wp_reset_postdata();
+            <?php endwhile;  else : ?>    
+
+            <h3>Sem registros encontrados!</h3>
+
+            <?php 
+                endif;
+                wp_reset_postdata();
             ?>
 
         </div>

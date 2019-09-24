@@ -74,11 +74,11 @@
                     <nav>
                         <ul>
                             <li><a href="<?php bloginfo('url'); ?>/?page_id=13387">Sobre</a></li>
+                            <li><a href="<?php bloginfo('url'); ?>/?page_id=13796">Quem somos</a></li>
+                            <li><a href="<?php bloginfo('url'); ?>/?page_id=3">Política do Site</a></li>
                             <li><a href="<?php bloginfo('url'); ?>/?page_id=13399">Parcerias e Apoio</a></li>
                             <li><a href="<?php bloginfo('url'); ?>/?page_id=13391">Contato</a></li>
                             <li><a href="<?php bloginfo('url'); ?>/?page_id=13393">Trabalhe conosco</a></li>
-                            <li><a href="<?php bloginfo('url'); ?>/?page_id=13396">Anuncie</a></li>
-                            <li><a href="<?php bloginfo('url'); ?>/?page_id=3">Política do Site</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -88,7 +88,7 @@
                         <ul>
                             <?php
                                 $categories=get_categories(
-                                    array( 'parent' => 2 )
+                                    array( 'parent' => 1, 'hide_empty' => false )
                                 );
                                 foreach ($categories as $c) :
                             ?>
@@ -107,7 +107,7 @@
                         <ul>
                             <?php
                                 $categories=get_categories(
-                                    array( 'parent' => 3 )
+                                    array( 'parent' => 415, 'hide_empty' => false )
                                 );
                                 foreach ($categories as $c) :
                             ?>
