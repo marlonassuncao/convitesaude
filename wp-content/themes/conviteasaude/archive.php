@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="title">
-                        <h1><span>Últimos Posts</span>
+                        <h1><span><?php single_cat_title(); ?></span>
                             <div class="ft"></div>
                         </h1>
                     </div>
@@ -83,6 +83,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </section>
 

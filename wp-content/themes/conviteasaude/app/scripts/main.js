@@ -1,5 +1,12 @@
 jQuery(function () {
 
+  // menu
+  jQuery(function () {
+    jQuery(".btnav").click(function () {
+      jQuery("#header nav").fadeToggle();
+    });
+  });
+
   // owl
   jQuery(".owlGaleria").owlCarousel({
     loop: true,
@@ -11,11 +18,13 @@ jQuery(function () {
     responsive: {
       0: {
         items: 1,
-        dots: false
+        dots: false,
+        nav: true,
       },
       600: {
         items: 2,
-        dots: false
+        dots: false,
+        nav: true,
       },
       1000: {
         items: 4
@@ -79,22 +88,13 @@ jQuery(function () {
   })
 
   // smooth scroll
-
-  if (window.location.hash) {
-    jQuery('#fale-conosco').addClass('fixHeightHash');
-    jQuery('#nossas-lojas').addClass('fixPaddingtHash');
-  } else {
-    jQuery('#fale-conosco').removeClass('fixHeightHash');
-    jQuery('#nossas-lojas').removeClass('fixPaddingtHash');
-  }
-
   jQuery('a[href*="#"]:not([href="#"])').click(function () {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = jQuery(this.hash);
       target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
         jQuery('html, body').animate({
-          scrollTop: target.offset().top - 160
+          scrollTop: target.offset().top - 100
         }, 600);
         return false;
       }
@@ -105,7 +105,7 @@ jQuery(function () {
 // header on scroll
 jQuery(function () {
   var header = jQuery("#header");
-  var filterNav = jQuery(".filterNav");
+  var filterNav = jQuery("#navinterno");
   jQuery(window).scroll(function () {
     var scroll = jQuery(window).scrollTop();
 
@@ -114,7 +114,7 @@ jQuery(function () {
     } else {
       header.removeClass("headerStick");
     }
-    if (scroll >= 478) {
+    if (scroll >= 550) {
       filterNav.addClass("filterNavStick");
     } else {
       filterNav.removeClass("filterNavStick");

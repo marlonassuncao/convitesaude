@@ -16,14 +16,11 @@
                     </div>
                     <div class="listposts">
                     <?php
-                        // The Query
                         $args = array(
                             'cat'       => 1, 
                             'showposts' => 1
                         );
                         $the_query = new WP_Query( $args );
-
-                        // The Loop
                         if ( $the_query->have_posts() ) :
                     ?>
                         <div class="destaque">
@@ -62,15 +59,12 @@
                         <div class="allposts">
 
                             <?php
-                            // The Query
                             $args = array(
                                 'cat'       => 1, 
-                                'showposts' => 4,
+                                'showposts' => 3,
                                 'offset' => 1
                             );
                             $the_query = new WP_Query( $args );
-
-                            // The Loop
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) :
                                     $the_query->the_post();
@@ -142,14 +136,11 @@
                     <div class="listposts">
 
                     <?php
-                        // The Query
                         $args = array(
                             'cat'       => 415, 
                             'showposts' => 1
                         );
                         $the_query = new WP_Query( $args );
-
-                        // The Loop
                         if ( $the_query->have_posts() ) :
                     ?>
                         <div class="destaque">
@@ -188,15 +179,12 @@
                         <div class="allposts">
 
                             <?php
-                            // The Query
                             $args = array(
                                 'cat'       => 415, 
-                                'showposts' => 4,
+                                'showposts' => 3,
                                 'offset' => 1
                             );
                             $the_query = new WP_Query( $args );
-
-                            // The Loop
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) :
                                     $the_query->the_post();
@@ -235,30 +223,30 @@
                     </div>
                 </div>
                 <div class="listcat listcatanimal">
-                        <h3>Escolha o conteúdo por editoria</h3>
-                        <ul>
-                            <?php
-                                $categories=get_categories(
-                                    array( 'parent' => 415, 'hide_empty' => false )
-                                );
-                                foreach ($categories as $c) :
-                                    $icone = get_field('icone', 'category_'.$c->term_id);
-                            ?>
-                            <li>
-                                <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
-                                    <?php if(!$icone) : ?>
-                                        <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
-                                                alt=""></figure>
-                                    <?php else : ?>
-                                        <figure><img src="<?php echo $icone; ?>"
+                    <h3>Escolha o conteúdo por editoria</h3>
+                    <ul>
+                        <?php
+                            $categories=get_categories(
+                                array( 'parent' => 415, 'hide_empty' => false )
+                            );
+                            foreach ($categories as $c) :
+                                $icone = get_field('icone', 'category_'.$c->term_id);
+                        ?>
+                        <li>
+                            <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
+                                <?php if(!$icone) : ?>
+                                    <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
                                             alt=""></figure>
-                                    <?php endif; ?>
-                                    <?php echo $c->cat_name; ?>
-                                </a>
-                            </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                                <?php else : ?>
+                                    <figure><img src="<?php echo $icone; ?>"
+                                        alt=""></figure>
+                                <?php endif; ?>
+                                <?php echo $c->cat_name; ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
             <div class="col-md-3">
                 <aside id="sidebar" data-aos="fade-left" data-aos-delay="300">

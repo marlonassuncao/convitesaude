@@ -33,9 +33,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-9">
+                <div class="bread">
+                    <?php
+                        if ( function_exists('yoast_breadcrumb') ) {
+                            yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                        }
+                    ?>
+                </div>
                 <div data-aos="fade-right" data-aos-delay="300">
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                     <h1><?php the_title(); ?></h1>
+                    <span class="cat">
+                       <span><strong>Categorias: </strong></span> <?php the_category(', '); ?>
+                    </span>
                     <div class="data">Atualizado em: <?php the_time('j \d\e F \d\e Y'); ?></div>
                    
                     <?php 

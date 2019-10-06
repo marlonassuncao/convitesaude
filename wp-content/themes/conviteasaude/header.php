@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
@@ -18,6 +18,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <div class="btnav">
+        <i class="ion-navicon"></i>
+    </div>
     <header id="header">
         <div class="container-fluid" data-aos="fade-in">
             <div class="logo">
@@ -33,7 +36,7 @@
                     <a href="<?php bloginfo('url'); ?>/?page_id=13430">Saúde do Animal</a>
                 </div>
             </span>
-            <nav data-aos="fade-in">
+            <nav>
                 <ul>
                     <li><a href="<?php bloginfo('url'); ?>">Home</a></li>
                     <li><a href="<?php bloginfo('url'); ?>/?page_id=13387">Sobre</a></li>

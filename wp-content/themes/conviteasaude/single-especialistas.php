@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="slide"></div>
     </div>
-    <div class="perfil">
+    <div class="perfil" style="<?php if($fields['cor_do_perfil_secundaria']) : echo 'background-color: '.$fields['cor_do_perfil_secundaria'].''; endif; ?>">
         <div class="top" style="<?php if($fields['cor_do_perfil']) : echo 'background-color: '.$fields['cor_do_perfil'].''; endif; ?>">
             <div class="container-fluid">
                 <div class="socials" data-aos="fade-in" data-aos-delay="100">
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="bottom" style="<?php if($fields['cor_do_perfil_secundaria']) : echo 'background-color: '.$fields['cor_do_perfil_secundaria'].''; endif; ?>">
+        <div class="bottom">
             <div class="container-fluid" data-aos="fade-right" data-aos-delay="100">
                 <figure>
                 <?php if(has_post_thumbnail()) : the_post_thumbnail('thumbnail'); else : ?>
@@ -58,9 +58,15 @@
             </div>
             <div class="col-md-6">
                 <div class="navTels">
-                    <a href="#" class="btn"> <i class="ion-android-call"></i> Ligação</a>
-                    <a href="#" class="btn"> <i class="ion-social-whatsapp-outline"></i> Mensagem</a>
-                    <a href="#" class="btn"> <i class="ion-paper-airplane"></i> E-mail</a>
+                    <?php if($fields['telefone']) : ?>
+                        <a href="tel:<?php echo $fields['telefone']; ?>" target="_blank" class="btn"> <i class="ion-android-call"></i> Ligação</a>
+                    <?php endif; ?>
+                    <?php if($fields['whatsapp']) : ?>
+                        <a href="https://api.whatsapp.com/send?phone=<?php echo $fields['whatsapp']; ?>" target="_blank" class="btn"> <i class="ion-social-whatsapp-outline"></i> Mensagem</a>
+                    <?php endif; ?>
+                    <?php if($fields['e-mail']) : ?>
+                        <a href="mailto:<?php echo $fields['e-mail']; ?>" target="_blank" class="btn"> <i class="ion-paper-airplane"></i> E-mail</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

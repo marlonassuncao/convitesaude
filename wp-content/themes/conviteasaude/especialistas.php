@@ -32,6 +32,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="bread">
+                    <?php
+                        if ( function_exists('yoast_breadcrumb') ) {
+                            yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                        }
+                    ?>
+                </div>
                 <div class="title">
                     <h1><span>Nossos Especialistas</span>
                         <div class="ft"></div>

@@ -12,6 +12,20 @@ $rosa: #c066a7;
 $magento: #ff5a5f;
 $branco: #ffffff;
 
+.btnav {
+  display: none;
+  font-size: 28pt;
+  position: fixed;
+  z-index: 999;
+  top: 5px;
+  right: 15px;
+  cursor: pointer;
+  color: $rosa;
+  &:hover {
+    color: $rosa;
+  }
+}
+
 // fonts
 @font-face {
   font-family: "SemiBold";
@@ -198,10 +212,12 @@ body {
   color: $preto;
 }
 .container-fluid {
-  width: 1440px;
+  width: 1280px;
   max-width: 100%;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 #header {
   background: $branco;
@@ -213,11 +229,8 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    // align-content: center;
-    // align-items: center;
-    // align-self: center;
+    padding: 0 15px;
+    width: 1440px;
   }
   span {
     width: 33.3%;
@@ -400,6 +413,35 @@ body {
       color: $branco;
       margin-bottom: 35px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      figure {
+        margin: 0;
+        margin-right: 20px;
+        background: rgba(#fff, 0.9);
+        margin-top: -2.6rem;
+        border-radius: 100%;
+        width: 75px;
+        height: 75px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 8px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        img {
+          -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
     }
     .form {
       display: -webkit-box;
@@ -583,7 +625,7 @@ body {
         width: 100%;
         content: "";
         width: 100%;
-        border-top: 2pt solid $rosa;
+        border-top: 3px solid $rosa;
         margin-left: auto;
         -ms-flex-item-align: center;
         align-self: center;
@@ -660,7 +702,6 @@ body {
     }
     .destaque {
       width: 50%;
-      padding-right: 15px;
     }
     .allposts {
       width: 50%;
@@ -689,6 +730,9 @@ body {
           width: 70%;
           padding: 10px;
           padding-top: 2px;
+          p {
+            font-size: 10.5pt;
+          }
         }
       }
     }
@@ -713,7 +757,7 @@ body {
       width: 100%;
       margin-bottom: 35px;
       .box {
-        padding: 10px;
+        padding: 20px;
         width: 33.3%;
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -751,7 +795,7 @@ body {
       flex-wrap: wrap;
       li {
         padding: 5px 10px;
-        width: 150px;
+        width: 125px;
         a {
           color: $preto;
           display: -webkit-box;
@@ -926,6 +970,12 @@ body {
       }
     }
   }
+  .col-md-9 {
+    padding-right: 2rem;
+  }
+}
+.bread {
+  font-size: 12pt;
 }
 #servicos {
   h1 {
@@ -940,11 +990,22 @@ body {
   }
 }
 .navTels {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-line-pack: center;
   align-content: center;
+  -ms-flex-item-align: center;
   align-self: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-top: 10rem;
   .btn {
@@ -961,6 +1022,8 @@ body {
 }
 #locais {
   ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     list-style: none;
     margin: 0;
@@ -986,8 +1049,14 @@ body {
 }
 #plx {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   h1 {
     font-size: 22pt;
@@ -1007,6 +1076,9 @@ blockquote {
 }
 #page {
   min-height: auto;
+  .col-md-9 {
+    padding: 0 5rem;
+  }
   h1 {
     font-size: 22pt;
     line-height: 1em;
@@ -1120,6 +1192,14 @@ blockquote {
     .txt {
       padding: 20px;
       padding-right: 50px;
+    }
+  }
+}
+.page-template-blog {
+  .listcat {
+    margin-top: 3rem;
+    ul li {
+      width: auto;
     }
   }
 }
@@ -1301,7 +1381,7 @@ blockquote {
 #ebooks {
   .box {
     width: 100%;
-    min-height: 500px;
+    // min-height: 500px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1318,9 +1398,8 @@ blockquote {
     align-content: center;
     position: relative;
     // background: $rosa;
-    overflow: hidden;
     figure {
-      position: absolute;
+      // position: absolute;
       // background: $rosa url(../images/t01.jpg) center no-repeat;
       background-size: cover;
       width: 100%;
@@ -1458,6 +1537,25 @@ blockquote {
       }
     }
   }
+}
+.wp-pagenavi {
+  clear: both;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 #fale-conosco {
   background: $cinzaclaro;
@@ -1647,7 +1745,7 @@ blockquote {
 
 #listEspecialistas {
   .box {
-    width: 100%;
+    max-width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1661,13 +1759,14 @@ blockquote {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    margin: 25px 0;
     figure {
       overflow: hidden;
       border-radius: 100%;
       background: $verde;
       display: block;
-      width: 180px;
-      height: 180px;
+      width: 150px;
+      height: 150px;
       max-width: 100%;
       margin: 0 auto;
       img {
@@ -1708,8 +1807,8 @@ blockquote {
       text-align: center;
       h1 {
         color: $verde;
-        font-size: 16pt;
-        line-height: 18pt;
+        font-size: 14pt;
+        line-height: 1.2em;
       }
       strong {
         display: block;
@@ -1749,8 +1848,12 @@ blockquote {
 
 #navinterno {
   width: 100%;
-  background: #dfb2d3;
+  background: $rosa;
   padding: 10px;
+  z-index: 999;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  top: 0;
   ul {
     margin: 0;
     padding: 0;
@@ -1774,6 +1877,10 @@ blockquote {
     }
   }
 }
+.filterNavStick {
+  position: fixed !important;
+  top: 100px !important;
+}
 .page-template-doencas-sintomas {
   .title {
     margin-bottom: 0;
@@ -1781,7 +1888,7 @@ blockquote {
 }
 #archive {
   h1 {
-    font-size: 2em;
+    font-size: 20pt;
     margin-bottom: 35px;
     color: $rosa;
   }
@@ -1807,7 +1914,6 @@ blockquote {
       padding-right: 2rem;
       -webkit-box-pack: center;
       -ms-flex-pack: center;
-      justify-content: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
@@ -1817,6 +1923,7 @@ blockquote {
       font-size: 14pt;
     }
     form {
+      max-width: 100%;
       select {
         width: 320px;
         max-width: 100%;
@@ -1844,12 +1951,13 @@ blockquote {
         }
       }
       a.btn {
-        margin: 0;
+        margin: 5px 2px;
         color: $branco !important;
         font-size: 11.5pt;
         min-width: auto;
         border-radius: 4px;
         font-family: "Regular";
+        padding: 5px 10px;
         position: relative;
         top: 1px;
         -webkit-transform: none !important;
@@ -1863,7 +1971,7 @@ blockquote {
         left: 0;
         margin-left: 10px;
         background: $verde;
-        padding: 10px;
+        padding: 5px 10px;
         border-radius: 4px;
         color: $branco;
         &:hover {
@@ -1872,13 +1980,22 @@ blockquote {
         }
       }
     }
+    .formS {
+      position: relative;
+      button {
+        position: absolute;
+        left: auto;
+        right: 10px;
+        top: 10px;
+      }
+    }
   }
   .posts {
     .box {
       margin-bottom: 35px;
       figure {
         background: $verde;
-        min-width: 300px;
+        // min-width: 300px;
         max-width: 100%;
         img {
           max-width: 100%;
@@ -1928,9 +2045,38 @@ blockquote {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
       figure {
-        width: 380px;
+        min-width: 320px;
         margin-right: 20px;
+        min-height: 100px;
+      }
+    }
+  }
+  .listEspecialidades {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    .box {
+      width: 33.3%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      // flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      text-align: center;
+      figure {
+        min-width: 100%;
+      }
+      .inner {
+        padding: 5px;
       }
     }
   }
@@ -1961,7 +2107,6 @@ blockquote {
   transform-style: preserve-3d;
   width: 100%;
 }
-
 .page-template-minha-saude {
   #archive .posts .box,
   #listEspecialistas .box {
@@ -2031,7 +2176,7 @@ blockquote {
 .page-template-saude-animal,
 .page-template-minha-saude {
   .section .listcat ul li {
-    width: 100px !important;
+    width: 25% !important;
   }
 }
 
@@ -2040,9 +2185,34 @@ blockquote {
     background: transparent;
   }
 }
-
+.owl-prev,
+.owl-next {
+  background: transparent !important;
+  outline: none !important;
+  span {
+    font-size: 30pt;
+    color: $verde;
+  }
+}
+@media only screen and (min-width: 922px) and (max-width: 1280px) {
+  #header span a {
+    font-size: 15pt;
+  }
+  #header .logo {
+    width: 220px;
+  }
+  #header span {
+    width: 38%;
+  }
+  #header nav {
+    width: 39%;
+  }
+}
 // mobile
 @media only screen and (min-width: 0) and (max-width: 992px) {
+  .btnav {
+    display: block;
+  }
   #header {
     height: 60px !important;
     padding: 10px 0;
@@ -2056,9 +2226,29 @@ blockquote {
   }
   #header nav {
     display: none;
+    background: $cinzaclaro;
+    width: 100%;
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 5px;
+    ul {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    form {
+      margin: 0 auto;
+      margin-top: 15px;
+    }
   }
   #header span {
-    width: 70%;
+    width: 62%;
     padding: 0;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
@@ -2075,10 +2265,13 @@ blockquote {
       width: 100%;
       padding: 0;
       a {
-        padding: 0;
-        font-size: 1.1em;
+        padding: 5px 2px;
+        font-size: 10pt;
       }
     }
+  }
+  .filterNavStick {
+    top: 60px !important;
   }
   #slider .slide {
     height: 250px;
@@ -2117,5 +2310,99 @@ blockquote {
   }
   #sidebar {
     margin-top: 35px;
+  }
+  .section .title h1 {
+    font-size: 15pt;
+  }
+  .section .title h1 span {
+    min-width: 160px;
+    padding-right: 20px;
+  }
+  #slider .slide h1 {
+    font-size: 32pt;
+    line-height: 1em;
+  }
+  .section .title {
+    margin-bottom: 5px;
+  }
+  .section {
+    padding: 35px 15px;
+  }
+  .section .listposts .allposts .box figure,
+  .section .listposts .allposts .box .desc {
+    width: 100%;
+  }
+  .section .listposts .allposts,
+  .section .listposts .allposts .box .desc {
+    padding: 0;
+  }
+  #page .col-md-9 {
+    padding: 0;
+  }
+  #archive .filter .box,
+  #archiveInner .filter .box {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  #archiveInner .posts .box figure {
+    min-width: 100%;
+  }
+  #archive h1,
+  #archiveInner h1 {
+    font-size: 16pt;
+  }
+  #archiveInner .listEspecialidades .box {
+    width: 100%;
+  }
+  #slider .perfil figure {
+    width: 160px;
+    height: 160px;
+    top: -4rem;
+    margin-right: 10px;
+  }
+  #slider .perfil .bottom .title h1 {
+    font-size: 18pt;
+  }
+  #page {
+    .container-fluid {
+      padding: 0;
+    }
+  }
+  #page .perfil .box h3 {
+    font-size: 18pt;
+  }
+  .navTels {
+    margin: 0;
+  }
+  #locais ul {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    li {
+      margin: 12px 5px;
+    }
+  }
+  #locais .load {
+    padding: 20px 10px;
+  }
+  #dicas .box {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+  }
+  #dicas .txt p {
+    text-align: center;
+  }
+  .container-fluid {
+    padding: 10px;
+  }
+  #galeria h3 {
+    font-size: 18pt;
+  }
+  #slider .perfil .top .container-fluid .socials {
+    margin-top: -10px;
+  }
+  #slider .perfil .top .container-fluid .socials a {
+    margin-right: 10px;
   }
 }

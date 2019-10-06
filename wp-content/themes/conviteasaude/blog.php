@@ -28,6 +28,13 @@
 <section class="section" id="archive">
     <div class="posts">
         <div class="container-fluid">
+            <div class="bread">
+                <?php
+                    if ( function_exists('yoast_breadcrumb') ) {
+                        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                    }
+                ?>
+            </div>
             <div class="row">
                 <div class="title">
                     <h1><span>Últimos posts <br> do Blog</span>
@@ -70,6 +77,57 @@
                 </div>
                 <?php endif; wp_pagenavi( array( 'query' => $posts ) ); wp_reset_query(); ?>
 
+            </div>
+            <div class="listcat">
+                <h1>Escolha o conteúdo por editoria</h1>
+                <h3>Minha Saúde</h3>
+                <ul>
+                    <?php
+                        $categories=get_categories(
+                            array( 'parent' => 1, 'hide_empty' => false )
+                        );
+                        foreach ($categories as $c) :
+                            $icone = get_field('icone', 'category_'.$c->term_id);
+                    ?>
+                    <li>
+                        <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
+                            <?php if(!$icone) : ?>
+                                <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
+                                        alt=""></figure>
+                            <?php else : ?>
+                                <figure><img src="<?php echo $icone; ?>"
+                                    alt=""></figure>
+                            <?php endif; ?>
+                            <?php echo $c->cat_name; ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="listcat listcatanimal">
+                <h3>Sáude Animal</h3>
+                <ul>
+                    <?php
+                        $categories=get_categories(
+                            array( 'parent' => 415, 'hide_empty' => false )
+                        );
+                        foreach ($categories as $c) :
+                            $icone = get_field('icone', 'category_'.$c->term_id);
+                    ?>
+                    <li>
+                        <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
+                            <?php if(!$icone) : ?>
+                                <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
+                                        alt=""></figure>
+                            <?php else : ?>
+                                <figure><img src="<?php echo $icone; ?>"
+                                    alt=""></figure>
+                            <?php endif; ?>
+                            <?php echo $c->cat_name; ?>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>

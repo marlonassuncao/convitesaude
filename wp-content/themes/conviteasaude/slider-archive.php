@@ -1,17 +1,27 @@
 <div id="slider">
     <div class="container-fluid" data-aos="zoom-in-up" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
         <div class="slide">
-            <h1><?php
-                $i = 0;
-                $sep = ', ';
-                $cats = '';
-                foreach ( ( get_the_category() ) as $category ) {
-                  if (0 < $i)
-                    $cats .= $sep;
-                  $cats .= $category->cat_name;
-                  $i++;
-                }
-                echo $cats;
+            <?php $icone = get_field('icone', 'category_'.get_queried_object()->term_id); ?>
+            <h1>
+            <?php if(!$icone) : ?>
+                <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
+                        alt=""></figure>
+            <?php else : ?>
+                <figure><img src="<?php echo $icone; ?>"
+                    alt=""></figure>
+            <?php endif; ?>    
+            <?php
+            single_cat_title();
+                // $i = 0;
+                // $sep = ', ';
+                // $cats = '';
+                // foreach ( ( get_the_category() ) as $category ) {
+                //   if (0 < $i)
+                //     $cats .= $sep;
+                //   $cats .= $category->cat_name;
+                //   $i++;
+                // }
+                // echo $cats;
             ?></h1>
             <div id="mlb2-1436384" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1436384 form">
                 <form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/a0f5v4"

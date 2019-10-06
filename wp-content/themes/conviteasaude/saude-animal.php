@@ -72,6 +72,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="minha-saude" data-aos="fade-in">
+                    <div class="bread">
+                        <?php
+                            if ( function_exists('yoast_breadcrumb') ) {
+                                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                            }
+                        ?>
+                    </div>
                     <div class="title">
                         <h1><span>Destaques</span>
                             <div class="ft"></div>
@@ -83,7 +90,14 @@
                             <?php
                             $args = array(
                                 'cat'       => 415, 
-                                'showposts' => 3
+                                'showposts' => 3,
+                                'meta_query' => array(
+                                    array(
+                                        'key' => 'destaque',
+                                        'compare' => '=',
+                                        'value' => '1'
+                                    )
+                                )
                             );
                             $the_query = new WP_Query( $args );
 
@@ -158,10 +172,12 @@
     <div class="posts">
         <div class="container-fluid">
             <div class="row">
-                <div class="title">
-                    <h1><span>Últimos Posts</span>
-                        <div class="ft"></div>
-                    </h1>
+                <div class="col-md-12">
+                    <div class="title">
+                        <h1><span>Últimos Posts</span>
+                            <div class="ft"></div>
+                        </h1>
+                    </div>
                 </div>
 
                 <?php

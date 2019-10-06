@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="title">
-                    <h1><span>Nossos Especialistas</span>
+                    <h1><span>Nossas clínicas</span>
                         <div class="ft"></div>
                     </h1>
                 </div>
