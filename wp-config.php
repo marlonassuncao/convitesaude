@@ -19,7 +19,7 @@
 define('DB_NAME', 'convite');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'marlonassuncao');
 
 /** Senha do banco de dados MySQL */
 define('DB_PASSWORD', 'Hiexoez41994_@');
