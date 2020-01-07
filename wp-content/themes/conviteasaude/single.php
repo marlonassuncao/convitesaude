@@ -46,7 +46,7 @@
                     <span class="cat">
                        <span><strong>Categorias: </strong></span> <?php the_category(', '); ?>
                     </span>
-                    <div class="data">Atualizado em: <?php the_time('j \d\e F \d\e Y'); ?></div>
+                    <div class="data"><strong>Atualizado em:</strong> <?php the_time('j \d\e F \d\e Y'); ?></div>
                    
                     <?php 
                         if( $fields['autor']) : 
@@ -59,8 +59,8 @@
                                     <img src="<?php echo $image[0]; ?>" alt="">
                                 </figure>
                                 <div class="txt">
-                                    <h3>Por: <a href="<?php echo $fields['autor'][0]->guid; ?>"><?php echo $nome_destaque; ?></a></h3>
-                                    <a href="<?php echo $especialidade->guid; ?>"><?php echo $especialidade->post_title; ?></a>
+                                    <h3>Por: <a href="<?php bloginfo('url'); ?>/?page_id=<?php echo $fields['autor'][0]->ID; ?>"><?php echo $nome_destaque; ?></a></h3>
+                                    <a href="<?php bloginfo('url'); ?>/?page_id=<?php echo $especialidade->ID; ?>"><?php echo $especialidade->post_title; ?></a>
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -77,6 +77,7 @@
                         $nome_destaque = get_field('nome_destaque', $fields['autor'][0]->ID);
                         $especialidade = get_field('especialidade', $fields['autor'][0]->ID);
                         $crm = get_field('crm', $fields['autor'][0]->ID);
+                        // print_r($fields['autor']);
                 ?>
                     <div class="autor autor_">
                         <?php if (has_post_thumbnail( $fields['autor'][0]->ID ) ) : $image = wp_get_attachment_image_src( get_post_thumbnail_id( $fields['autor'][0]->ID ), 'single-post-thumbnail' ); ?>
@@ -84,17 +85,82 @@
                                 <img src="<?php echo $image[0]; ?>" alt="">
                             </figure>
                             <div class="txt">
-                                <h3>Por: <a href="<?php echo $fields['autor'][0]->guid; ?>"><?php echo $nome_destaque; ?></a></h3>
-                                <a href="<?php echo $especialidade->guid; ?>"><?php echo $especialidade->post_title; ?></a>
+                                <h3>Por: <a href="<?php bloginfo('url'); ?>/?page_id=<?php echo $fields['autor'][0]->ID; ?>"><?php echo $nome_destaque; ?></a></h3>
+                                <a href="<?php bloginfo('url'); ?>/?page_id=<?php echo $especialidade->ID; ?>"><?php echo $especialidade->post_title; ?></a>
                                 <p> <strong>CRM:</strong> <?php echo $crm; ?></p>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi natus corporis nam quaerat hic totam, expedita incidunt accusantium consequuntur harum reiciendis earum magni cumque, laudantium sint mollitia? A, magni?</p>
+                                <!-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi natus corporis nam quaerat hic totam, expedita incidunt accusantium consequuntur harum reiciendis earum magni cumque, laudantium sint mollitia? A, magni?</p> -->
                             </div>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
+
+                <div class="adsense">
+                                        
+                            <?php
+                            $args = array(
+                                'post_type' => 'adsense',
+                                'showposts' => 1,
+                                'orderby' => 'rand',
+                                'categorias-adsense' => 'editorias-bottom-728x90'
+                            );
+                            $the_query = new WP_Query( $args );
+                            if ( $the_query->have_posts() ) :
+                                while ( $the_query->have_posts() ) :
+                                    $the_query->the_post();
+                                    $fields = get_fields();
+                                    if( get_field('local') == 'h01' ) :
+                            ?>
+                                <figure>
+                                    <?php if($fields['link']) : ?>
+                                    <a href="<?php echo $fields['link']; ?>">
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    </a>
+                                    <?php else : ?>
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    <?php endif; ?>
+                                </figure>
+
+                            <?php 
+                                endif;
+                                endwhile; 
+                                endif;
+                                wp_reset_postdata();
+                            ?>
+                    </div>
             </div>
             <div class="col-md-3">
                 <aside id="sidebar" data-aos="fade-left" data-aos-delay="300">
+                    <div class="adsense">
+                                        
+                        <?php
+                        $args = array(
+                            'post_type' => 'adsense',
+                            'showposts' => 1,
+                            'orderby' => 'rand',
+                            'categorias-adsense' => 'sidebar-top-250x250'
+                        );
+                        $the_query = new WP_Query( $args );
+                        if ( $the_query->have_posts() ) :
+                            while ( $the_query->have_posts() ) :
+                                $the_query->the_post();
+                                $fields = get_fields();
+                        ?>
+                            <figure>
+                                <?php if($fields['link']) : ?>
+                                <a href="<?php echo $fields['link']; ?>">
+                                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                </a>
+                                <?php else : ?>
+                                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                <?php endif; ?>
+                            </figure>
+                
+                        <?php 
+                            endwhile; 
+                            endif;
+                            wp_reset_postdata();
+                        ?>
+                    </div>
                     <h1>Leia Também</h1>
                     <div class="posts">
                         <ul>

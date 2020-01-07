@@ -10,19 +10,8 @@
                 <figure><img src="<?php echo $icone; ?>"
                     alt=""></figure>
             <?php endif; ?>    
-            <?php
-            single_cat_title();
-                // $i = 0;
-                // $sep = ', ';
-                // $cats = '';
-                // foreach ( ( get_the_category() ) as $category ) {
-                //   if (0 < $i)
-                //     $cats .= $sep;
-                //   $cats .= $category->cat_name;
-                //   $i++;
-                // }
-                // echo $cats;
-            ?></h1>
+            <?php single_term_title(); ?>
+            </h1>
             <div id="mlb2-1436384" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-1436384 form">
                 <form class="ml-block-form" action="https://app.mailerlite.com/webforms/submit/a0f5v4"
                     data-code="a0f5v4" method="post" target="_blank">

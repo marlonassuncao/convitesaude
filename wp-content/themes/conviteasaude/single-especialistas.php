@@ -72,13 +72,17 @@
         </div>
     </div>
 </section>
+
+<?php if($fields['texto_destaque']) : ?>
 <section class="section" id="plx">
     <div class="container-fluid">
-        <h1>Queda de cabelo!</h1>
-        <p>Nam quis ipsum sed quam elementum volutpat at ut orci. Cras tincidunt arcu quis dolor gravida, in condimentum turpis tempus. </p>
+        <div class="txt" data-aos="fade-in" data-aos-delay="100"><?php echo $fields['texto_destaque']; ?></div>
     </div>
-    <div class="parallax" data-parallax-image="<?php bloginfo('template_directory'); ?>/app/images/bb.jpg"></div>
+    <div class="parallax" data-parallax-image="<?php echo $fields['banner_destaque']['url']; ?>"></div>
 </section>
+<?php endif; ?>
+
+<?php if($fields['servicos']) : ?>
 <section class="section" id="servicos">
     <div class="container-fluid">
         <div class="row">
@@ -89,16 +93,20 @@
             </div>
             <div class="col-md-12">
                 <ul>
-                    <?php if($fields['servicos']) : foreach($fields['servicos'] as $servicos) : ?>
-                    <li><?php echo $servicos['titulo']; ?></li>
-                    <?php endforeach; else : ?>
-                    <p>Sem informações.</p>
-                    <?php endif; ?>
+                    <?php foreach($fields['servicos'] as $servicos) : ?>
+                        <li>
+                            <figure><img src="<?php echo $servicos['icone']; ?>" alt="<?php wp_title(); ?>"></figure>
+                            <h3><?php echo $servicos['titulo']; ?></h3>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
+
+<?php if($fields['locais_de_atendimento']) : ?>
 <section class="section" id="locais">
     <div class="container-fluid">
         <div class="row">
@@ -107,19 +115,40 @@
                     <h1>Locais de Antendimento</h1>
                 </div>
             </div>
-            <div class="col-md-12">
-                <ul>
-                    <?php if($fields['subespecialidades']) : foreach($fields['subespecialidades'] as $subespecialidades) : ?>
-                    <li><a href="#"><?php echo $subespecialidades['titulo']; ?></a></li>
-                    <?php endforeach; endif; ?>
+            <div class="col-md-10 offset-md-1">
+                <ul class="tabs">
+                    <?php foreach($fields['locais_de_atendimento'] as $key => $locais_de_atendimento) : ?>
+                        <li data-tab="tab-<?php echo $key; ?>"><a href="javascript:void(0);"><?php echo $locais_de_atendimento['titulo']; ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
-                <div class="load">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quaerat, officiis sed placeat quisquam iusto labore eaque? Laborum, ratione. Blanditiis odit eos cum, porro saepe eligendi et aut consequuntur? Sit?</p>
-                </div>
+                <?php foreach($fields['locais_de_atendimento'] as $key => $locais_de_atendimento) : ?>
+                    <div id="tab-<?php echo $key; ?>" class="tab-content">
+                        <?php echo $locais_de_atendimento['informacoes']; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
+
+<?php if($fields['formulario']) : ?>
+<section class="section" id="fale-conosco" style="<?php if($fields['cor_do_perfil']) : echo 'background-color: '.$fields['cor_do_perfil'].''; endif; ?>">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="title">
+                <h1>Agende já sua consulta</h1>
+                <p>Faça sua avaliação na consulta e entenda por onde iniciar seu tratamento.</p>
+            </div>
+        </div>
+        <div class="col-md-6 offset-3">
+            <?php echo do_shortcode($fields['formulario']); ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<?php if($fields['dicas_de_saude']) : ?>
 <section class="section" id="dicas">
     <div class="container-fluid">
         <div class="row">
@@ -132,50 +161,57 @@
             </div>
             <div class="col-md-9">
                 <div class="txt" data-aos="fade-in" data-aos-delay="300">
-                    <?php if($fields['dicas_de_saude']) : echo $fields['dicas_de_saude']; else : echo '<p>Sem informações.</p>'; endif;  ?>
+                    <?php echo $fields['dicas_de_saude']; ?>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
+
+<?php if($fields['galeria_de_fotos']) : ?>
 <section class="section" id="galeria">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="title">
+                    <h1>Galeria de Fotos</h1>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div data-aos="fade-in" data-aos-delay="100">
-                    <div class="box">
-                        <h3>Minhas Galeria de Fotos</h3>
-                    </div>
                     <div class="galeria">
-                        <?php if($fields['galeria_de_fotos']) : ?>
                         <ul class="owl-carousel owl-theme owlGaleria">
                             <?php foreach($fields['galeria_de_fotos'] as $galeria_de_fotos) : ?>
                                 <li>
                                     <figure>
-                                        <img src="<?php echo $galeria_de_fotos['sizes']['thumbnail']; ?>" class="img-fluid" alt="">
+                                       <a href="<?php echo $galeria_de_fotos['sizes']['large']; ?>" data-fancybox>
+                                            <img src="<?php echo $galeria_de_fotos['sizes']['thumbnail']; ?>" class="img-fluid" alt="">
+                                       </a>
                                     </figure>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                        <?php else : ?>
-                        <p>Sem informações.</p>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- <section class="section" id="pets">
+<?php endif; ?>
+
+<?php if($fields['meus_pets']) : ?>
+<section class="section" id="pets">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
+                <div class="title">
+                    <h1>Meus Pets</h1>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div data-aos="fade-in" data-aos-delay="100">
-                    <div class="box">
-                        <h3>Meus Pets</h3>
-                    </div>
                     <div class="galeria">
-                        <?php if($fields['meus_pets']) : ?>
                         <ul class="owl-carousel owl-theme owlPets">
                             <?php foreach($fields['meus_pets'] as $meus_pets) : ?>
                                 <li>
@@ -188,15 +224,13 @@
                                 </li>
                             <?php endforeach; ?>
                         </ul>
-                        <?php else : ?>
-                        <p>Sem informações.</p>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section> -->
+</section>
+<?php endif; ?>
 
 <section class="section" id="archive">
     <div class="posts">

@@ -80,7 +80,7 @@ class Expired_Cache_Purge {
 			return;
 		}
 
-		$urls = array_unique( $urls, true );
+		$urls = array_unique( $urls );
 
 		if ( empty( $this->filesystem ) ) {
 			$this->filesystem = rocket_direct_filesystem();
@@ -326,7 +326,7 @@ class Expired_Cache_Purge {
 				$dir_deleted = $this->purge_dir( $item->getPathname(), $file_age_limit );
 				$deleted     = array_merge( $deleted, $dir_deleted );
 
-			} elseif ( $item->getCTime() < $file_age_limit ) {
+			} elseif ( $item->isFile() && $item->getCTime() < $file_age_limit ) {
 				$file_path = $item->getPathname();
 
 				/**

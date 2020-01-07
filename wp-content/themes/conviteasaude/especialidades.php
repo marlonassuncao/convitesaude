@@ -13,32 +13,9 @@
         $sn = $_GET['sn'];
         $sTerm = strtoupper(esc_attr($sn));
     } 
+    include'navinterno.php';
 ?>
 
-<nav id="navinterno">
-    <div class="container">
-        <ul>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13432">Doenças e Sintomas</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13434">Blog</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13436">Conteúdo Especial</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13439">Especiliadades</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13441">Especialistas</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13443">Clínicas</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <section class="section" id="archiveInner">
     <div class="posts">
         <div class="container-fluid">
@@ -59,43 +36,42 @@
                     <div class="filter">
                         <div class="box">
                             <h3>Pesquise pela primeira letra:</h3>
-                            <form id="formFilterSl" method="get" action="<?php echo home_url('especiliadades'); ?>">
-                                <select class="form-control" name="l">
-                                    <option value="">Selecione a letra</option>
-                                    <option value="a">A</option>
-                                    <option value="b">B</option>
-                                    <option value="c">C</option>
-                                    <option value="d">D</option>
-                                    <option value="e">E</option>
-                                    <option value="f">F</option>
-                                    <option value="g">G</option>
-                                    <option value="h">H</option>
-                                    <option value="i">I</option>
-                                    <option value="j">J</option>
-                                    <option value="k">K</option>
-                                    <option value="l">L</option>
-                                    <option value="m">M</option>
-                                    <option value="n">N</option>
-                                    <option value="o">O</option>
-                                    <option value="p">P</option>
-                                    <option value="q">Q</option>
-                                    <option value="r">R</option>
-                                    <option value="s">S</option>
-                                    <option value="t">T</option>
-                                    <option value="u">U</option>
-                                    <option value="v">V</option>
-                                    <option value="w">W</option>
-                                    <option value="x">X</option>
-                                    <option value="y">Y</option>
-                                    <option value="z">Z</option>
-                                </select>
+                            <ul>
+                                <li> <a href="">A</a> </li>
+                                <li> <a href="">B</a> </li>
+                                <li> <a href="">C</a> </li>
+                                <li> <a href="">D</a> </li>
+                                <li> <a href="">E</a> </li>
+                                <li> <a href="">F</a> </li>
+                                <li> <a href="">G</a> </li>
+                                <li> <a href="">H</a> </li>
+                                <li> <a href="">I</a> </li>
+                                <li> <a href="">J</a> </li>
+                                <li> <a href="">K</a> </li>
+                                <li> <a href="">L</a> </li>
+                                <li> <a href="">M</a> </li>
+                                <li> <a href="">N</a> </li>
+                                <li> <a href="">O</a> </li>
+                                <li> <a href="">P</a> </li>
+                                <li> <a href="">Q</a> </li>
+                                <li> <a href="">R</a> </li>
+                                <li> <a href="">S</a> </li>
+                                <li> <a href="">T</a> </li>
+                                <li> <a href="">U</a> </li>
+                                <li> <a href="">V</a> </li>
+                                <li> <a href="">W</a> </li>
+                                <li> <a href="">X</a> </li>
+                                <li> <a href="">Y</a> </li>
+                                <li> <a href="">Z</a> </li>
+                            </ul>
+                            <form id="formFilterSl" method="get" action="<?php echo home_url('doencas-e-sintomas'); ?>">
                                 <button class="bt">Pesquisar</button>
-                                <a href="<?php echo home_url('especiliadades'); ?>" class="btn"> Limpar</a>
+                                <a href="<?php echo home_url('doencas-e-sintomas'); ?>" class="btn"> Limpar</a>
                             </form>
                         </div>
                         <div class="box">
                             <h3>Pesquise pelo nome:</h3>
-                            <form action="<?php echo home_url('especiliadades'); ?>" method="get" accept-charset="utf-8" role="search" class="formS">
+                            <form action="<?php echo home_url('doencas-e-sintomas'); ?>" method="get" accept-charset="utf-8" role="search" class="formS">
                                 <input type="search" class="form-control" placeholder="Digite sua busca" name="sn" id="sn" value="<?php the_search_query(); ?>">
                                 <button><i class="ion-ios-search-strong"></i></button>
                             </form>
@@ -172,6 +148,38 @@
             </div>
         </div>
     </div>
+    <div class="adsense">                                
+        <?php
+        $args = array(
+            'post_type' => 'adsense',
+            'showposts' => 1,
+            'orderby' => 'rand',
+            'categorias-adsense' => 'editorias-bottom-728x90'
+        );
+        $the_query = new WP_Query( $args );
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) :
+                $the_query->the_post();
+                $fields = get_fields();
+                if( get_field('local') == 'h01' ) :
+        ?>
+            <figure>
+                <?php if($fields['link']) : ?>
+                <a href="<?php echo $fields['link']; ?>">
+                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                </a>
+                <?php else : ?>
+                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                <?php endif; ?>
+            </figure>
+
+        <?php 
+            endif;
+            endwhile; 
+            endif;
+            wp_reset_postdata();
+        ?>
+</div>
 </section>
 
 

@@ -14,7 +14,8 @@
                         <div style="width: 100%;" class="horizontal-fields">
                             <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
                                 <input style="width: 100%;" type="email" class="form-control" data-inputmask=""
-                                    name="fields[email]" value="" placeholder="Digite seu melhor e-mail" required="required">
+                                    name="fields[email]" value="" placeholder="Digite seu melhor e-mail"
+                                    required="required">
                             </div>
                         </div>
                     </div>
@@ -40,8 +41,7 @@
     <div class="parallax" data-parallax-image="<?php bloginfo('template_directory'); ?>/app/images/bg01.jpg"></div>
 </section>
 <footer class="section" id="footer">
-    <div class="unidades" data-aos="fade-in" data-aos-delay="300" data-aos-easing="ease-out-cubic"
-        data-aos-duration="500">
+    <div class="unidades">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3">
@@ -142,6 +142,7 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/owl.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/parallax.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/app/scripts/main.min.js"></script>

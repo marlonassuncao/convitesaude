@@ -552,27 +552,27 @@
     },
     {
         "name": "psr/log",
-        "version": "1.1.0",
-        "version_normalized": "1.1.0.0",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+            "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-            "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
+            "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2018-11-20T15:27:04+00:00",
+        "time": "2019-11-01T11:05:21+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "1.1.x-dev"
             }
         },
         "installation-source": "dist",
@@ -601,17 +601,17 @@
     },
     {
         "name": "wp-media/rocket-lazyload-common",
-        "version": "v2.5.3",
-        "version_normalized": "2.5.3.0",
+        "version": "v2.5.4",
+        "version_normalized": "2.5.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/wp-media/rocket-lazyload-common.git",
-            "reference": "438cff5e29519bce9d2e6c964a906ff410ce6313"
+            "reference": "e5ad49418784776e54d181791522c0fa6bf172a4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wp-media/rocket-lazyload-common/zipball/438cff5e29519bce9d2e6c964a906ff410ce6313",
-            "reference": "438cff5e29519bce9d2e6c964a906ff410ce6313",
+            "url": "https://api.github.com/repos/wp-media/rocket-lazyload-common/zipball/e5ad49418784776e54d181791522c0fa6bf172a4",
+            "reference": "e5ad49418784776e54d181791522c0fa6bf172a4",
             "shasum": ""
         },
         "require": {
@@ -629,7 +629,7 @@
             "symfony/yaml": "2.8.*",
             "wp-coding-standards/wpcs": "^2.0.0"
         },
-        "time": "2019-10-01T13:26:23+00:00",
+        "time": "2019-10-28T15:10:39+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

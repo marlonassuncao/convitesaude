@@ -5,6 +5,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-9">
+                    <div class="bread">
+                        <?php
+                            if ( function_exists('yoast_breadcrumb') ) {
+                                yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+                            }
+                        ?>
+                    </div>
                     <div class="title">
                         <h1><span><?php single_cat_title(); ?></span>
                             <div class="ft"></div>
@@ -36,9 +43,73 @@
                         <h3>Sem posts registrados!</h1>
                     </div>
                     <?php endif; wp_pagenavi(); wp_reset_query(); ?>
+                    <div class="adsense">
+                                        
+                            <?php
+                            $args = array(
+                                'post_type' => 'adsense',
+                                'showposts' => 1,
+                                'orderby' => 'rand',
+                                'categorias-adsense' => 'editorias-bottom-728x90'
+                            );
+                            $the_query = new WP_Query( $args );
+                            if ( $the_query->have_posts() ) :
+                                while ( $the_query->have_posts() ) :
+                                    $the_query->the_post();
+                                    $fields = get_fields();
+                                    if( get_field('local') == 'h01' ) :
+                            ?>
+                                <figure>
+                                    <?php if($fields['link']) : ?>
+                                    <a href="<?php echo $fields['link']; ?>">
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    </a>
+                                    <?php else : ?>
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    <?php endif; ?>
+                                </figure>
+
+                            <?php 
+                                endif;
+                                endwhile; 
+                                endif;
+                                wp_reset_postdata();
+                            ?>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <aside id="sidebar" data-aos="fade-left" data-aos-delay="300">
+                        <div class="adsense">
+                                        
+                            <?php
+                            $args = array(
+                                'post_type' => 'adsense',
+                                'showposts' => 1,
+                                'orderby' => 'rand',
+                                'categorias-adsense' => 'sidebar-top-250x250'
+                            );
+                            $the_query = new WP_Query( $args );
+                            if ( $the_query->have_posts() ) :
+                                while ( $the_query->have_posts() ) :
+                                    $the_query->the_post();
+                                    $fields = get_fields();
+                            ?>
+                                <figure>
+                                    <?php if($fields['link']) : ?>
+                                    <a href="<?php echo $fields['link']; ?>">
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    </a>
+                                    <?php else : ?>
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    <?php endif; ?>
+                                </figure>
+                    
+                            <?php 
+                                endwhile; 
+                                endif;
+                                wp_reset_postdata();
+                            ?>
+                        </div>
                         <h1>E-books</h1>
                         <div class="posts">
                             <ul>

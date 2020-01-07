@@ -9,7 +9,7 @@
 ?>
 <section class="section" id="ebooks">
     <div class="container-fluid">
-        <?php if(is_page(13436)) : ?>
+        <?php if(is_page(13436) || is_page(15838)) : ?>
         <div class="bread">
             <?php
                 if ( function_exists('yoast_breadcrumb') ) {

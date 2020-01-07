@@ -115,16 +115,49 @@
                                 <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
                                     <?php if(!$icone) : ?>
                                         <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
-                                                alt=""></figure>
+                                                alt="<?php wp_title(); ?>"></figure>
                                     <?php else : ?>
                                         <figure><img src="<?php echo $icone; ?>"
-                                            alt=""></figure>
+                                            alt="<?php wp_title(); ?>"></figure>
                                     <?php endif; ?>
-                                    <?php echo $c->cat_name; ?>
+                                        <p><?php echo $c->cat_name; ?></p>
                                 </a>
                             </li>
                             <?php endforeach; ?>
                         </ul>
+                    </div>
+                    <div class="adsense">
+                                        
+                            <?php
+                            $args = array(
+                                'post_type' => 'adsense',
+                                'showposts' => 1,
+                                'orderby' => 'rand',
+                                'categorias-adsense' => 'home-top-728x90'
+                            );
+                            $the_query = new WP_Query( $args );
+                            if ( $the_query->have_posts() ) :
+                                while ( $the_query->have_posts() ) :
+                                    $the_query->the_post();
+                                    $fields = get_fields();
+                                    if( get_field('local') == 'h01' ) :
+                            ?>
+                                <figure>
+                                    <?php if($fields['link']) : ?>
+                                    <a href="<?php echo $fields['link']; ?>">
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    </a>
+                                    <?php else : ?>
+                                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                    <?php endif; ?>
+                                </figure>
+
+                            <?php 
+                                endif;
+                                endwhile; 
+                                endif;
+                                wp_reset_postdata();
+                            ?>
                     </div>
                 </div>
                 <div class="saude-do-animal" data-aos="fade-in">
@@ -236,16 +269,49 @@
                             <a href="<?php bloginfo('url'); ?>/?cat=<?php echo $c->cat_ID; ?>">
                                 <?php if(!$icone) : ?>
                                     <figure><img src="<?php bloginfo('template_directory'); ?>/app/images/ico.png"
-                                            alt=""></figure>
+                                            alt="<?php wp_title(); ?>"></figure>
                                 <?php else : ?>
                                     <figure><img src="<?php echo $icone; ?>"
-                                        alt=""></figure>
+                                        alt="<?php wp_title(); ?>"></figure>
                                 <?php endif; ?>
-                                <?php echo $c->cat_name; ?>
+                                    <p><?php echo $c->cat_name; ?></p>
                             </a>
                         </li>
                         <?php endforeach; ?>
                     </ul>
+                </div>
+                <div class="adsense">
+                                        
+                        <?php
+                        $args = array(
+                            'post_type' => 'adsense',
+                            'showposts' => 1,
+                            'orderby' => 'rand',
+                            'categorias-adsense' => 'home-bottom-728x90'
+                        );
+                        $the_query = new WP_Query( $args );
+                        if ( $the_query->have_posts() ) :
+                            while ( $the_query->have_posts() ) :
+                                $the_query->the_post();
+                                $fields = get_fields();
+                                if( get_field('local') == 'h02' ) :
+                        ?>
+                            <figure>
+                                <?php if($fields['link']) : ?>
+                                <a href="<?php echo $fields['link']; ?>">
+                                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                </a>
+                                <?php else : ?>
+                                    <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                                <?php endif; ?>
+                            </figure>
+
+                        <?php 
+                            endif;
+                            endwhile; 
+                            endif;
+                            wp_reset_postdata();
+                        ?>
                 </div>
             </div>
             <div class="col-md-3">
@@ -255,14 +321,11 @@
                         <ul>
 
                             <?php
-                            // The Query
                             $args = array(
                                 'cat'       => 414, 
                                 'showposts' => 4
                             );
                             $the_query = new WP_Query( $args );
-
-                            // The Loop
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) :
                                     $the_query->the_post();

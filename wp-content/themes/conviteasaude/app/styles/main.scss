@@ -405,7 +405,8 @@ body {
       }
     }
     h1 {
-      font-size: 4em;
+      font-size: 3.5em;
+      line-height: 1.2em;
       //   letter-spacing: 5pt;
       word-spacing: 5pt;
       line-height: 0.4em;
@@ -601,8 +602,7 @@ body {
   }
 }
 .section {
-  padding: 55px 0;
-  min-height: 420px;
+  padding: 35px 0;
   .title {
     position: relative;
     display: -webkit-box;
@@ -632,7 +632,7 @@ body {
       }
       span {
         width: auto;
-        min-width: 280px;
+        min-width: 25%;
         display: block;
       }
     }
@@ -656,9 +656,13 @@ body {
       -webkit-box-align: start;
       -ms-flex-align: start;
       align-items: flex-start;
+      .cat {
+        margin-bottom: 5px;
+        display: block;
+      }
       h1 {
-        font-size: 1.1em;
-        line-height: 1em;
+        font-size: 1.3em;
+        line-height: 1.2em;
         -webkit-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         font-family: "AvenirBold";
@@ -667,6 +671,7 @@ body {
       }
       figure {
         background: $rosa;
+        margin-top: 5px;
         img {
           max-width: 100%;
           min-width: 100%;
@@ -684,6 +689,7 @@ body {
       .cat {
         a {
           color: $rosa;
+          font-size: 9.5pt;
           &:hover {
             color: rgba($rosa, 0.6);
           }
@@ -702,6 +708,9 @@ body {
     }
     .destaque {
       width: 50%;
+      .desc {
+        padding-right: 1rem;
+      }
     }
     .allposts {
       width: 50%;
@@ -731,7 +740,8 @@ body {
           padding: 10px;
           padding-top: 2px;
           p {
-            font-size: 10.5pt;
+            font-size: 10pt;
+            line-height: 1.5em;
           }
         }
       }
@@ -744,7 +754,7 @@ body {
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      margin-top: 35px;
+      // margin-top: 35px;
     }
   }
   .listpostsinner {
@@ -793,36 +803,25 @@ body {
       display: flex;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+      text-align: center;
       li {
         padding: 5px 10px;
-        width: 125px;
+        width: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        max-width: 100px;
         a {
           color: $preto;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          -ms-flex-line-pack: center;
-          align-content: center;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          text-align: center;
           font-size: 10pt;
           line-height: 12pt;
-          // width: 100px;
           figure {
-            margin: 0;
+            margin: 0 auto;
             padding: 5px;
-            width: 40px;
+            width: 35px;
             margin-bottom: 5px;
             opacity: 1;
             -webkit-transition: all 0.2s ease-in-out;
@@ -832,6 +831,10 @@ body {
               min-width: 100%;
               height: auto;
             }
+          }
+          p {
+            text-align: center;
+            margin: 0;
           }
           &:hover {
             color: $rosa;
@@ -901,6 +904,9 @@ body {
     padding: 20px;
     border-radius: 4px;
     border: 1pt solid rgba($cinzamedio, 0.1);
+    .adsense {
+      margin-top: 0;
+    }
     h1 {
       font-size: 20pt;
       line-height: 1em;
@@ -912,7 +918,7 @@ body {
         padding: 0;
         list-style: none;
         li {
-          margin-bottom: 35px;
+          margin: 25px 0;
           text-align: left;
           figure {
             background: $verde;
@@ -926,10 +932,13 @@ body {
             }
           }
           .cat {
+            margin-bottom: 5px;
+            display: block;
             a {
-              color: $cinzamedio;
+              color: $preto;
+              font-size: 9.5pt;
               &:hover {
-                color: rgba($verde, 0.6);
+                color: rgba($cinzamedio, 0.8);
               }
             }
           }
@@ -937,6 +946,7 @@ body {
             margin: 0;
             margin-bottom: 15px;
             text-align: center;
+            background: rgba($preto, 0.8);
             h3 {
               font-size: 12pt;
               margin: 0;
@@ -945,16 +955,17 @@ body {
           .txt {
             text-align: left;
             h1 {
-              font-size: 12pt;
-              line-height: 1.2em;
-              margin-bottom: 5px;
+              font-size: 14pt;
+              line-height: 1.3em;
+              margin: 10px 0;
+              width: 100%;
             }
             p {
               font-size: 10pt;
             }
           }
           a {
-            color: $cinzamedio;
+            color: $preto;
           }
           &:hover {
             figure {
@@ -963,7 +974,7 @@ body {
               }
             }
             h1 {
-              color: $verde;
+              color: rgba($cinzamedio, 0.8);
             }
           }
         }
@@ -973,11 +984,35 @@ body {
   .col-md-9 {
     padding-right: 2rem;
   }
+  .adsense {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 35px 0;
+    figure {
+      margin: 0 auto;
+      img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
 .bread {
   font-size: 12pt;
 }
 #servicos {
+  .title {
+    margin-bottom: 0;
+  }
   h1 {
     color: $preto;
     &:after {
@@ -987,6 +1022,36 @@ body {
   ul {
     padding: 0;
     margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style: none;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    li {
+      padding: 1rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      margin: 15px 30px;
+      width: 25%;
+      h3 {
+        font-family: "AvenirBold";
+      }
+    }
   }
 }
 .navTels {
@@ -1007,7 +1072,6 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-top: 10rem;
   .btn {
     background: $cinzaclaro;
     color: $preto;
@@ -1021,7 +1085,14 @@ body {
   }
 }
 #locais {
-  ul {
+  background: #ededed;
+  h1 {
+    color: $preto;
+    &:after {
+      display: none;
+    }
+  }
+  ul.tabs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1029,16 +1100,21 @@ body {
     margin: 0;
     padding: 0;
     li {
-      margin: 5px;
       a {
         padding: 12px 20px;
         background: $cinzaclaro;
-        border-radius: 4px;
         color: $preto;
+        border-right: 1pt solid $cinzaclaro;
+        font-weight: bold;
+        font-family: "AvenirBold";
         &:hover {
-          background: $preto;
-          color: $branco;
+          background: $branco;
         }
+      }
+    }
+    .current {
+      a {
+        background: $branco !important;
       }
     }
   }
@@ -1047,19 +1123,62 @@ body {
     padding: 35px;
   }
 }
+// tabs
+.tab-content {
+  // position: absolute;
+  // visibility: hidden;
+  margin-top: 8px;
+  background: $branco;
+  width: 100%;
+  padding: 1.5rem;
+  // opacity: 0;
+  display: none;
+  ul {
+    list-style: none;
+    li {
+      list-style: none;
+      figure {
+        width: 100%;
+        img {
+          max-width: 100%;
+          height: auto;
+          // min-width: 100%;
+        }
+      }
+    }
+  }
+}
+.tab-content.current {
+  position: relative;
+  display: inherit;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
 #plx {
-  text-align: center;
+  min-height: 420px;
+  text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  h1 {
+  .txt {
+    width: 55%;
+    max-width: 100%;
+  }
+  h3 {
     font-size: 22pt;
+    line-height: 1.2em;
+    font-family: "Avenir";
+    margin-bottom: 20px;
+    strong {
+      font-family: "AvenirBold";
+    }
   }
 }
 blockquote {
@@ -1163,15 +1282,18 @@ blockquote {
     background: $rosa;
     color: $branco;
     border-radius: 100px;
+    width: 340px;
+    max-width: 100%;
     figure {
-      min-width: 180px;
       margin: 0;
-      margin-right: 30px;
+      width: 120px;
     }
     h3 {
       color: $branco;
+      font-size: 12pt;
       a {
         color: $branco;
+        font-size: 12pt;
         &:hover {
           color: $cinzamedio;
         }
@@ -1187,7 +1309,7 @@ blockquote {
       color: $branco;
       font-family: "Regular";
       font-weight: normal;
-      font-size: 10.5pt;
+      font-size: 10pt;
     }
     .txt {
       padding: 20px;
@@ -1263,6 +1385,15 @@ blockquote {
   }
 }
 #galeria {
+  .title {
+    margin-bottom: 0;
+  }
+  h1 {
+    color: $preto;
+    &:after {
+      display: none;
+    }
+  }
   h3 {
     font-size: 22pt;
   }
@@ -1301,6 +1432,15 @@ blockquote {
   }
 }
 #pets {
+  .title {
+    margin-bottom: 0;
+  }
+  h1 {
+    color: $preto;
+    &:after {
+      display: none;
+    }
+  }
   h3 {
     font-size: 22pt;
   }
@@ -1443,13 +1583,56 @@ blockquote {
   }
   .title {
     h1 {
-      color: $cinzamedio;
+      color: $preto;
       &:after {
-        border-color: $cinzamedio;
+        border-color: $preto;
       }
     }
     span {
       //   min-width: 130px;
+    }
+  }
+}
+.category-noticias {
+  #archive .posts .box .cat a,
+  #archiveInner .posts .box .cat a {
+    &:hover {
+      color: rgba($preto, 0.6);
+    }
+  }
+  a {
+    color: $preto;
+    &:hover {
+      color: rgba($preto, 0.6);
+    }
+  }
+  #archive .posts .box:hover h1,
+  #archiveInner .posts .box:hover h1 {
+    color: rgba($preto, 0.6);
+  }
+  #archive h1,
+  #archiveInner h1 {
+    color: $preto;
+  }
+  #archive .posts .box figure,
+  #archiveInner .posts .box figure {
+    background: rgba($preto, 0.6);
+  }
+  .title {
+    h1 {
+      color: $preto;
+      &:after {
+        border-color: $preto;
+      }
+    }
+  }
+}
+#listEspecialistas {
+  h1 {
+    color: $preto;
+    &:after {
+      border-color: $preto;
+      margin-left: 20px;
     }
   }
 }
@@ -1536,6 +1719,18 @@ blockquote {
         background: $cinzamedio;
       }
     }
+  }
+}
+.home {
+  .section .listposts {
+    .btn {
+      margin-top: 10px;
+    }
+  }
+}
+.page-template {
+  .section .listcat {
+    margin: 0;
   }
 }
 .wp-pagenavi {
@@ -1627,9 +1822,33 @@ blockquote {
     color: $verde;
   }
 }
+.single-especialistas {
+  #fale-conosco {
+    padding: 35px 0;
+    .btn {
+      margin: 0 auto;
+      display: block;
+      margin-top: 25px;
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 0;
+      color: $branco;
+      display: block;
+    }
+    h1 {
+      display: block;
+      color: $branco;
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
 #footer {
   border-top: 1pt solid rgba($cinzamedio, 0.2);
   min-height: auto;
+  padding: 20px 0;
   figure {
     width: 200px;
     margin: 0;
@@ -1658,14 +1877,17 @@ blockquote {
   nav {
     margin-top: 35px;
     ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
       li {
         a {
           color: $cinzamedio;
-          font-size: 12pt;
-          line-height: 22pt;
+          font-size: 11pt;
+          line-height: 1em;
           padding: 2px 0;
           &:hover {
-            color: $preto;
+            color: #d0d0d0;
           }
         }
       }
@@ -1888,8 +2110,6 @@ blockquote {
 }
 #archive {
   h1 {
-    font-size: 20pt;
-    margin-bottom: 35px;
     color: $rosa;
   }
   .filter {
@@ -1900,8 +2120,29 @@ blockquote {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      margin: 0;
+      justify-content: center;
+      li {
+        margin: 5px;
+        a {
+          padding: 5px;
+          border: 1pt solid $cinzaclaro;
+          &:hover {
+            background: $cinzamedio;
+            color: $branco;
+          }
+        }
+      }
+    }
     .box {
-      width: 50%;
+      width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -2018,8 +2259,9 @@ blockquote {
       .txt {
         padding-top: 10px;
         h1 {
-          font-size: 14pt;
-          line-height: 16pt;
+          font-size: 1.5em;
+          line-height: 1.2em;
+          margin: 15px 0;
         }
       }
       a {
@@ -2040,13 +2282,12 @@ blockquote {
 }
 #archiveInner {
   @extend #archive;
+  padding: 35px 0;
   .posts {
     .box {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
       figure {
         min-width: 320px;
         margin-right: 20px;
@@ -2107,7 +2348,25 @@ blockquote {
   transform-style: preserve-3d;
   width: 100%;
 }
-.page-template-minha-saude {
+.page-template-minha-saude,
+.page-template-categoria-minha-saude,
+.category-categoria-minha-saude,
+.parent-pageid-13428 {
+  #archive .posts .box .cat a,
+  #archiveInner .posts .box .cat a {
+    &:hover {
+      color: #c066a7;
+    }
+  }
+  a {
+    color: $rosa;
+  }
+  #listEspecialistas h1 {
+    color: $rosa;
+    &:after {
+      border-color: $rosa;
+    }
+  }
   #archive .posts .box,
   #listEspecialistas .box {
     figure {
@@ -2126,8 +2385,21 @@ blockquote {
   #ebooks .title h1:after {
     border-color: $rosa;
   }
+  .form-control {
+    &:focus {
+      border-color: $rosa;
+    }
+  }
 }
-.page-template-saude-animal {
+.page-template-saude-animal,
+.page-template-categoria-saude-do-animal,
+.parent-pageid-13430 {
+  #listEspecialistas h1 {
+    color: $verde;
+    &:after {
+      border-color: $verde;
+    }
+  }
   #archive .posts .box,
   #listEspecialistas .box {
     figure {
@@ -2138,11 +2410,6 @@ blockquote {
         color: $verde;
       }
     }
-  }
-  #ebooks .box figure,
-  #ebooks .box,
-  .section .listposts .box figure {
-    // background-color: $verde;
   }
   #ebooks .title h1,
   #listEspecialistas .box .txt h1,
@@ -2174,7 +2441,8 @@ blockquote {
 }
 
 .page-template-saude-animal,
-.page-template-minha-saude {
+.page-template-minha-saude,
+.page-template-categoria-minha-saude {
   .section .listcat ul li {
     width: 25% !important;
   }
@@ -2192,6 +2460,37 @@ blockquote {
   span {
     font-size: 30pt;
     color: $verde;
+  }
+}
+.page-template-categoria-saude-do-animal,
+.parent-pageid-13430 {
+  a {
+    color: $verde;
+    &:hover {
+      color: rgba($verde, 0.6);
+    }
+  }
+  #navinterno {
+    background: $verde;
+  }
+}
+.page-template-minha-saude {
+  a {
+    color: $rosa;
+    &:hover {
+      color: rgba($rosa, 0.6);
+    }
+  }
+}
+.page-template-noticias {
+  a {
+    color: $preto;
+    &:hover {
+      color: rgba($cinzamedio, 0.7);
+    }
+  }
+  #navinterno {
+    background: #929292;
   }
 }
 @media only screen and (min-width: 922px) and (max-width: 1280px) {
@@ -2219,8 +2518,8 @@ blockquote {
     .logo {
       width: 30%;
       img {
-        min-width: 120px !important;
-        max-width: 120px !important;
+        min-width: 90px !important;
+        max-width: 90px !important;
       }
     }
   }
@@ -2270,6 +2569,10 @@ blockquote {
       }
     }
   }
+  #archiveInner .posts .box {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
   .filterNavStick {
     top: 60px !important;
   }
@@ -2297,7 +2600,6 @@ blockquote {
   .section .listposts .destaque,
   .section .listposts .allposts {
     width: 100%;
-    margin-top: 35px;
   }
   .section .listposts .btnend {
     margin-top: 0;
@@ -2305,8 +2607,12 @@ blockquote {
   .btn {
     padding: 5px;
   }
-  .minha-saude {
-    margin-bottom: 35px;
+  #archive,
+  #archiveInner {
+    padding: 35px 15px;
+  }
+  .section .adsense {
+    margin: 10px 0;
   }
   #sidebar {
     margin-top: 35px;

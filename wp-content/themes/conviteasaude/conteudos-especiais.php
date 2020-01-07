@@ -1,34 +1,15 @@
 <?php /* Template Name: Conteúdos Especiais */ ?>
-<?php get_header(); include'slider.php'; ?>
+<?php 
+    get_header(); 
+    include'slider.php'; 
+    include'navinterno.php'; 
+?>
 
-<nav id="navinterno">
-    <div class="container">
-        <ul>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13432">Doenças e Sintomas</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13434">Blog</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13436">Conteúdo Especial</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13439">Especiliadades</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13441">Especialistas</a>
-            </li>
-            <li>
-                <a href="<?php bloginfo('url'); ?>/?page_id=13443">Clínicas</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
-<?php include'loop-ebooks.php'; ?>
 
 <?php
+    include'loop-ebooks.php'; 
+
     $args = array(
         'post_type' => 'conteudosespeciais', 
         'categorias' => 'videos',
@@ -196,6 +177,43 @@
 </section>
 <?php endif; ?>
 
+<section class="section">
+    <div class="container">
+        <div class="adsense">
+                                        
+            <?php
+            $args = array(
+                'post_type' => 'adsense',
+                'showposts' => 1,
+                'orderby' => 'rand',
+                'categorias-adsense' => 'editorias-bottom-728x90'
+            );
+            $the_query = new WP_Query( $args );
+            if ( $the_query->have_posts() ) :
+                while ( $the_query->have_posts() ) :
+                    $the_query->the_post();
+                    $fields = get_fields();
+                    if( get_field('local') == 'h01' ) :
+            ?>
+                <figure>
+                    <?php if($fields['link']) : ?>
+                    <a href="<?php echo $fields['link']; ?>">
+                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                    </a>
+                    <?php else : ?>
+                        <img src="<?php echo $fields['imagem']['url']; ?>" alt="<?php wp_title(); ?>">
+                    <?php endif; ?>
+                </figure>
+
+            <?php 
+                endif;
+                endwhile; 
+                endif;
+                wp_reset_postdata();
+            ?>
+        </div>
+    </div>
+</section>
 <?php 
     include'loop-especialistas.php';
     get_footer(); 
